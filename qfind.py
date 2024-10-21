@@ -6,7 +6,7 @@ stop = int(sys.argv[2]) if len(sys.argv) > 2 else math.inf
 
 def find_q(degree: int):
     table = make_table(degree)
-    return table[-1][0][0]
+    return table[-1][0].components[0].coefficient
 
 d = start
 while d <= stop:

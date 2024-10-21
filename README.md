@@ -38,6 +38,7 @@ In a polynomial sequence 𝑎₃𝑛³ + 𝑎₂𝑛² + 𝑎₁𝑛 + 𝑎₀:
 		<td colspan="12">6𝑎₃</td>
 	</tr>
 </table>
+
 The common 3<sup>rd</sup> difference shows that the sequence is cubic, and 𝑎₃ is found using the fact that the common 3<sup>rd</sup> difference is 6𝑎₃. The common difference (2<sup>nd</sup> and 1<sup>st</sup> respectively) in quadratic and linear sequences are 2𝑎₂ and 1𝑎₁. In any polynomial sequence of degree 𝑑, this project takes the multiplier of 𝑎<sub>𝑑</sub> in the common difference as 𝑞<sub>𝑑</sub>.
 
 `qfind.py` shows that for any polynomial sequence of degree 𝑑, 𝑞<sub>𝑑</sub> = 𝑑!.
