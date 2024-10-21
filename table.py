@@ -1,7 +1,8 @@
 from core import *
+import math
 
 def make_table(degree: int) -> list[list[Term]]:
-    needed_terms = degree + 1
+    needed_terms = degree + 2
     table = [[Term([Component(n**power, power) for power in range(degree, -1, -1)]) for n in range(1, needed_terms + 1)]]
 
     # find differences
@@ -14,3 +15,26 @@ def make_table(degree: int) -> list[list[Term]]:
         table.append(new_row)
 
     return table
+
+def to_html(table: list[list[Term]]) -> str:
+    css = "<style>td, th { border: 1px solid black; text-align: center; font-family: monospace; padding: 4px; } table { border-collapse: collapse; }</style>"
+    html = "<!DOCTYPE html><html><head></head><body><table>"
+    ncols = math.lcm(*(len(row) for row in table))
+    for (i, row) in enumerate(table):
+        rowlen = len(row)
+        colspan = ncols//rowlen
+        if i == 0:
+            html += "<tr>"
+            html += "<th>n</th>"
+            for n in range(rowlen):
+                html += f'<td colspan="{colspan}">{n+1}</td>'
+            html += "</tr>"
+        html += "<tr>"
+        html += f"<th>{"u" if i == 0 else f"d<sub>{i}</sub>"}</th>"
+        for term in row:
+            html += f'<td colspan="{colspan}">'
+            html += " + ".join(f"{comp.coefficient if comp.coefficient != 1 else ""}a<sub>{comp.var}</sub>" for comp in term.components if comp.coefficient != 0)
+            html += "</td>"
+        html += "</tr>"
+    html += f"</table>{css}</body></html>"
+    return html
