@@ -20,7 +20,7 @@ def to_html(table: list[list[Term]]) -> str:
     ncols = math.lcm(*(len(row) for row in table))
     css = ".table { width: fit-content; display: grid; grid-template-columns: min-content repeat(%s, 1fr); gap: 1px; background-color: black; border: 1px solid black; } " % ncols \
         + '.td, .th { padding: 4px; text-align: center; background-color: white; font-family: "Courier New", Courier, monospace; } ' \
-        + ".th { font-weight: bold } "
+        + ".th { font-weight: bold; } "
     html = '<!DOCTYPE html><html><head></head><body><div class="table">'
     for (i, row) in enumerate(table):
         rowlen = len(row)
