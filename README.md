@@ -4,6 +4,7 @@ My aim with this project is to investigate polynomial sequences, and:
   * number of terms required to find the common difference
   * the common difference and the leading coefficient
 * find a general 𝑛<sup>th</sup> term expression for any polynomial sequence of degree 𝑑
+
 Of course, a quick Google search could satisfy my curiosity, but what's the fun in that?
 
 ## Findings
